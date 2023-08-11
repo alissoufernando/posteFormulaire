@@ -1,0 +1,171 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Poste poste formulaire
+{% endblock %}
+
+{% block body %}
+	   <!-- page-wrapper Start-->
+    <div class="page-wrapper">
+      <!-- Page Body Start-->
+      <div class="page-body-wrapper">
+       
+<!-- Container-fluid starts-->
+<div class="container-fluid">
+  <div class="row justify-content-center">
+    <div class="col-md-9">
+    
+      <div class="card">
+      {% for message in app.flashes('success') %}
+			<div class="alert alert-success mt-4">
+				{{ message }}
+			</div>
+		{% endfor %}
+
+		{% for message in app.flashes('danger') %}
+			<div class="alert alert-success mt-4">
+				{{ message }}
+			</div>
+		{% endfor %}
+
+        <div class="job-search">
+          <div class="card-body pb-0">
+            <div class="media"><img class="img-40 img-fluid m-r-20" src="../assets/images/job-search/1.jpg" alt="">
+              <div class="media-body">
+                <h6 class="f-w-600"><a href="job-apply.html#">Front end designer</a><span class="pull-right">
+                    <button class="btn btn-primary" type="button"><span><i class="fa fa-check text-white"></i></span> Save this job</button></span></h6>
+                <p>HP <span>Lely, Netherlands </span><span><i class="fa fa-star font-warning"></i><i class="fa fa-star font-warning"></i><i class="fa fa-star font-warning"></i><i class="fa fa-star font-warning"></i><i class="fa fa-star font-warning"></i></span></p>
+              </div>
+            </div>
+            <div class="job-description">
+              <h6 class="mb-0">Personal Details</h6>
+               {{ form_start(form, {'attr': {'class': 'form theme-form'}}) }}
+            <div class="row">
+                <div class="col">
+                    <div class="form-group">
+                        <label for="{{ form.titre.vars.id }}">Titre:<span class="font-danger">*</span></label>
+                        {{ form_widget(form.titre) }}
+                    </div>
+                </div>
+                <!-- Repeat for other fields -->
+            </div>
+            <div class="row">
+                    <div class="col">
+                      <div class="form-group">
+                      <label for="{{ form.nom.vars.id }}">Nom:<span class="font-danger">*</span></label>
+                        {{ form_widget(form.nom) }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <div class="form-group">
+                      <label for="{{ form.prenom.vars.id }}">Prénom:<span class="font-danger">*</span></label>
+                        {{ form_widget(form.prenom) }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <div class="form-group">
+                      <label for="{{ form.email.vars.id }}">Email:<span class="font-danger">*</span></label>
+                        {{ form_widget(form.email) }}
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col">
+                      <div class="form-group">
+                      <label for="{{ form.sexe.vars.id }}">Sexe:<span class="font-danger">*</span></label>
+                        {{ form_widget(form.sexe) }}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col">
+                      <div class="form-group">
+                      <label for="{{ form.phone.vars.id }}">Numéro de téléphone:<span class="font-danger">*</span></label>
+                        {{ form_widget(form.phone) }}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                      <label for="{{ form.lettreMotivation.vars.id }}">Votre lettre de Motivation:<span class="font-danger">*</span></label>
+                        {{ form_widget(form.lettreMotivation) }}
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                      <label for="{{ form.cv.vars.id }}">Votre CV:<span class="font-danger">*</span></label>
+                        {{ form_widget(form.cv) }}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="row">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                      <label for="{{ form.photoIdentite.vars.id }}">Votre photo d'identité:<span class="font-danger">*</span></label>
+                        {{ form_widget(form.photoIdentite) }}
+                      </div>
+                    </div>
+
+                    <div class="col-md-6">
+                      <div class="form-group">
+                      <label for="{{ form.phptoComplete.vars.id }}">Votre photo Complète:<span class="font-danger">*</span></label>
+                        {{ form_widget(form.phptoComplete) }}
+                      </div>
+                    </div>
+                  </div>
+
+                  
+
+                  <div class="row">
+                    <div class="col">
+                      <div class="form-group">
+                      <label for="{{ form.cv.vars.id }}">Votre CV:<span class="font-danger">*</span></label>
+                        {{ form_widget(form.cv) }}
+                      </div>
+                    </div>
+                  </div>
+                  
+            <div class="card-footer">
+              {{ form_widget(form.submit) }}
+
+            </div>
+        {{ form_end(form) }}
+         
+              
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Container-fluid Ends-->
+
+        <!-- footer start-->
+<footer class="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 footer-copyright">
+        <p class="mb-0">Copyright 2019 © Endless All rights reserved.</p>
+      </div>
+      <div class="col-md-6">
+        <p class="pull-right mb-0">Hand crafted & made with<i class="fa fa-heart"></i></p>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- footer end-->      
+</div>
+      <!-- Page Body End-->
+</div>
+{% endblock %}
+
