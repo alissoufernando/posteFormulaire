@@ -51,23 +51,35 @@ class PosteFormulaireType extends AbstractType
             ->add('cv', FileType::class, [
                 'label' => 'Votre CV:*',
                 'required' => false, // Allow empty file uploads
-                'attr' => ['class' => 'form-control-file'],
+                'attr' => [
+                    'class' => 'form-control-file',
+                    'accept' => '.pdf', // Spécifier les types de fichiers autorisés (.pdf ici)
+                ],
             ])
             ->add('lettreMotivation', FileType::class, [
                 'label' => 'Votre lettre de motivation:*',
                 'required' => false, // Allow empty file uploads
-                'attr' => ['class' => 'form-control-file'],
+                'attr' => [
+                    'class' => 'form-control-file',
+                    'accept' => '.pdf', // Spécifier les types de fichiers autorisés (.pdf ici)
+                ],
             ])
 
             ->add('photoIdentite', FileType::class, [
                 'label' => 'Votre photo d\'identite:*',
                 'required' => false, // Allow empty file uploads
-                'attr' => ['class' => 'form-control-file'],
+                'attr' => [
+                    'class' => 'form-control-file',
+                    'accept' => 'image/*', // Spécifier les types d'images autorisés
+                ],
             ])
-            ->add('PhotoComplete', FileType::class, [
+            ->add('photoComplete', FileType::class, [
                 'label' => 'Votre Photo Compléte:*',
                 'required' => false, // Allow empty file uploads
-                'attr' => ['class' => 'form-control-file'],
+                'attr' => [
+                    'class' => 'form-control-file',
+                    'accept' => 'image/*', // Spécifier les types d'images autorisés
+                ],
             ])
          
             ->add('submit', SubmitType::class, [

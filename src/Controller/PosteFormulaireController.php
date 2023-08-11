@@ -17,7 +17,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class PosteFormulaireController extends AbstractController
 {
-    #[Route('/poste/formulaire', name: 'posteformulaire.index')]
+    #[Route('/', name: 'posteformulaire.index')]
     public function index(
         Request $request,
         EntityManagerInterface $manager,
@@ -78,7 +78,7 @@ class PosteFormulaireController extends AbstractController
                 $poste_formulaire->setPhotoComplete($photoCompleteFileName);
             }
 
-            // $manager->persist($poste_formulaire);
+            $manager->persist($poste_formulaire);
             // dd($poste_formulaire);
             $manager->flush();
 
@@ -91,9 +91,18 @@ class PosteFormulaireController extends AbstractController
             //->bcc('bcc@example.com')
             //->replyTo('fabien@example.com')
             //->priority(Email::PRIORITY_HIGH)
-            ->subject('Demande emploi pour le poste '.$poste_formulaire->getTitre())
+            ->subject('Demande emploi pour le poste de'.$poste_formulaire->getTitre())
             ->text('Sending emails is fun again!')
-            ->html('<p>See Twig integration for better HTML integration!</p>')
+            ->html('<h2>Nouvelle demande</h2>
+                    <br><strong>Titre du poste:</strong> <p>'.$poste_formulaire->getTitre().'</p>
+                    <br><strong>Nom:</strong> <p>'.$poste_formulaire->getNom().'</p>
+                    <br><strong>Prénoms:</strong> <p>'.$poste_formulaire->getPrenom().'</p>
+                    <br><strong>Sexe:</strong> <p>'.$poste_formulaire->getSexe().'</p>
+                    <br><strong>Phone:</strong> <p>'.$poste_formulaire->getPhone().'</p>
+                    <br><strong>Email:</strong> <p>'.$poste_formulaire->getEmail().'</p>
+                ')
+            ->attachFromPath($this->getParameter('your_photo_directory').'/'.$photoCompleteFileName, 'La photo compléte')
+            ->attachFromPath($this->getParameter('your_photo_directory').'/'.$photoIdentiteFileName, 'La photo d\'intentité')
             ->attachFromPath($this->getParameter('your_cv_directory').'/'.$cvFileName, 'Le CV')
             ->attachFromPath($this->getParameter('your_lettre_motivation_directory').'/'.$lettreMotivationFileName, 'La letttre de motivation');
             
